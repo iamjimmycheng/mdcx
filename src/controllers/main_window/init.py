@@ -17,7 +17,9 @@ def Init_Ui(self):
     self.setWindowIcon(QIcon(resources.icon_ico))  # 设置任务栏图标
     self.setWindowOpacity(1.0)  # 设置窗口透明度
     if config.is_windows:
-        self.setFixedSize(self.width(), self.height())  # 禁止调整窗口大小(mac 平台禁止后最小化没反应，恢复时顶部会残留标题栏)
+        self.setFixedSize(
+            self.width(), self.height()
+        )  # 禁止调整窗口大小(mac 平台禁止后最小化没反应，恢复时顶部会残留标题栏)
     self.setAttribute(Qt.WA_TranslucentBackground)  # 设置窗口背景透明
     self.Ui.progressBar_scrape.setValue(0)  # 进度条清0
     self.Ui.progressBar_scrape.setTextVisible(False)  # 不显示进度条文字
@@ -26,17 +28,17 @@ def Init_Ui(self):
     self.Ui.label_poster.setScaledContents(True)  # 图片自适应窗口
     self.Ui.label_thumb.setScaledContents(True)  # 图片自适应窗口
     self.Ui.pushButton_right_menu.setIcon(QIcon(resources.right_menu))
-    self.Ui.pushButton_right_menu.setToolTip(' 右键菜单 ')
+    self.Ui.pushButton_right_menu.setToolTip(" 右键菜单 ")
     self.Ui.pushButton_play.setIcon(QIcon(resources.play_icon))
-    self.Ui.pushButton_play.setToolTip(' 播放 ')
+    self.Ui.pushButton_play.setToolTip(" 播放 ")
     self.Ui.pushButton_open_folder.setIcon(QIcon(resources.open_folder_icon))
-    self.Ui.pushButton_open_folder.setToolTip(' 打开文件夹 ')
+    self.Ui.pushButton_open_folder.setToolTip(" 打开文件夹 ")
     self.Ui.pushButton_open_nfo.setIcon(QIcon(resources.open_nfo_icon))
-    self.Ui.pushButton_open_nfo.setToolTip(' 编辑 NFO ')
+    self.Ui.pushButton_open_nfo.setToolTip(" 编辑 NFO ")
     self.Ui.pushButton_tree_clear.setIcon(QIcon(resources.clear_tree_icon))
-    self.Ui.pushButton_tree_clear.setToolTip(' 清空结果列表 ')
-    self.Ui.pushButton_close.setToolTip(' 关闭 ')
-    self.Ui.pushButton_min.setToolTip(' 最小化 ')
+    self.Ui.pushButton_tree_clear.setToolTip(" 清空结果列表 ")
+    self.Ui.pushButton_close.setToolTip(" 关闭 ")
+    self.Ui.pushButton_min.setToolTip(" 最小化 ")
     self.Ui.pushButton_main.setIcon(QIcon(resources.home_icon))
     self.Ui.pushButton_log.setIcon(QIcon(resources.log_icon))
     self.Ui.pushButton_tool.setIcon(QIcon(resources.tool_icon))
@@ -45,16 +47,17 @@ def Init_Ui(self):
     help_icon = QIcon(resources.help_icon)
     self.Ui.pushButton_about.setIcon(help_icon)
     self.Ui.pushButton_tips_normal_mode.setIcon(help_icon)
-    self.Ui.pushButton_tips_normal_mode.setToolTip('''<html><head/><body><p><b>正常模式：</b><br/>1）适合海报墙用户。正常模式将联网刮削视频字段信息，并执行翻译字段信息，移动和重命名视频文件及文件夹，下载图片、剧照、预告片，添加字幕、4K水印等一系列自动化操作<br/>2）刮削目录请在「设置」-「刮削目录」-「待刮削目录」中设置<br/>3）刮削网站请在「设置」-「刮削网站」中设置。部分网站需要代理访问，可在「设置」-「代理」中设置代理和免翻网址。你可以点击左侧的「检测网络」查看网络连通性<br/>\
-        4）字段翻译请在「设置」-「翻译」中设置<br/>5）图片、剧照、预告片请在「设置」-「下载」中设置<br/>6）视频文件命名请在「设置」-「命名」中设置<br/>7）如果刮削后不需要重命名，请在下面的「刮削成功后重命名文件」设置为「关」<br/>8）如果刮削后不需要移动文件，请在下面的「刮削成功后移动文件」设置为「关」<br/>9）如果想自动刮削，请在「设置」-「高级」中勾选「自动刮削」<br/>10）其他设置项和功能玩法可自行研究</p></body></html>''')
+    self.Ui.pushButton_tips_normal_mode.setToolTip("""<html><head/><body><p><b>正常模式：</b><br/>1）适合海报墙用户。正常模式将联网刮削视频字段信息，并执行翻译字段信息，移动和重命名视频文件及文件夹，下载图片、剧照、预告片，添加字幕、4K水印等一系列自动化操作<br/>2）刮削目录请在「设置」-「刮削目录」-「待刮削目录」中设置<br/>3）刮削网站请在「设置」-「刮削网站」中设置。部分网站需要代理访问，可在「设置」-「代理」中设置代理和免翻网址。你可以点击左侧的「检测网络」查看网络连通性<br/>\
+        4）字段翻译请在「设置」-「翻译」中设置<br/>5）图片、剧照、预告片请在「设置」-「下载」中设置<br/>6）视频文件命名请在「设置」-「命名」中设置<br/>7）如果刮削后不需要重命名，请在下面的「刮削成功后重命名文件」设置为「关」<br/>8）如果刮削后不需要移动文件，请在下面的「刮削成功后移动文件」设置为「关」<br/>9）如果想自动刮削，请在「设置」-「高级」中勾选「自动刮削」<br/>10）其他设置项和功能玩法可自行研究</p></body></html>""")
     self.Ui.pushButton_tips_sort_mode.setIcon(help_icon)
     self.Ui.pushButton_tips_sort_mode.setToolTip(
-        '''<html><head/><body><p><b>视频模式：</b><br/>1，适合不需要图片墙的情况。视频模式将联网刮削视频相关字段信息，然后根据「设置」-「命名」中设置的命名规则重命名、移动视频文件<br/>2，仅整理视频，不会下载和重命名图片、nfo 文件<br/>3，如果是海报墙用户，请不要使用视频模式。</p></body></html>''')
+        """<html><head/><body><p><b>视频模式：</b><br/>1，适合不需要图片墙的情况。视频模式将联网刮削视频相关字段信息，然后根据「设置」-「命名」中设置的命名规则重命名、移动视频文件<br/>2，仅整理视频，不会下载和重命名图片、nfo 文件<br/>3，如果是海报墙用户，请不要使用视频模式。</p></body></html>"""
+    )
     self.Ui.pushButton_tips_update_mode.setIcon(help_icon)
-    self.Ui.pushButton_tips_update_mode.setToolTip('''<html><head/><body><p><b>更新模式：</b><br/>1，适合视频已经归类好的情况。更新模式将在不改动文件位置结构的前提下重新刮削更新一些信息<br/>2，更新规则在下面的「更新模式规则中」定义：<br/>-1）如果只更新视频文件名，请选择「只更新C」，视频文件名命名规则请到「设置-」「命名规则」中设置<br/>-2）如果要更新视频所在的目录名，请选择「更新B和C」；如果要更新视频目录的上层目录，请勾选「同时更新A目录」<br/>-3），如果要在视频目录为视频再创建一级目录，请选择「创建D目录」<br/>\
-        3，更新模式将会对「待刮削目录」下的所有视频进行联网刮削和更新。<br/>4，当有部分内容没有更新成功，下次想只刮削这些内容时，请选择「读取模式」，同时勾选「不存在 nfo 时，刮削并执行更新模式规则」，它将查询并读取所有视频本地的 nfo 文件（不联网），当没有 nfo 文件时，则会自动进行联网刮削<br/>5，当部分内容确实无法刮削时，你可以到「日志」页面，点击「失败」按钮，点击左下角的保存按钮，就可以把失败列表保存到本地，然后可以手动查看和处理这些视频信息。</p></body></html>''')
+    self.Ui.pushButton_tips_update_mode.setToolTip("""<html><head/><body><p><b>更新模式：</b><br/>1，适合视频已经归类好的情况。更新模式将在不改动文件位置结构的前提下重新刮削更新一些信息<br/>2，更新规则在下面的「更新模式规则中」定义：<br/>-1）如果只更新视频文件名，请选择「只更新C」，视频文件名命名规则请到「设置-」「命名规则」中设置<br/>-2）如果要更新视频所在的目录名，请选择「更新B和C」；如果要更新视频目录的上层目录，请勾选「同时更新A目录」<br/>-3），如果要在视频目录为视频再创建一级目录，请选择「创建D目录」<br/>\
+        3，更新模式将会对「待刮削目录」下的所有视频进行联网刮削和更新。<br/>4，当有部分内容没有更新成功，下次想只刮削这些内容时，请选择「读取模式」，同时勾选「不存在 nfo 时，刮削并执行更新模式规则」，它将查询并读取所有视频本地的 nfo 文件（不联网），当没有 nfo 文件时，则会自动进行联网刮削<br/>5，当部分内容确实无法刮削时，你可以到「日志」页面，点击「失败」按钮，点击左下角的保存按钮，就可以把失败列表保存到本地，然后可以手动查看和处理这些视频信息。</p></body></html>""")
     self.Ui.pushButton_tips_read_mode.setIcon(help_icon)
-    self.Ui.pushButton_tips_read_mode.setToolTip('''<html><head/><body><p><b>读取模式：</b><br/>\
+    self.Ui.pushButton_tips_read_mode.setToolTip("""<html><head/><body><p><b>读取模式：</b><br/>\
         1，读取模式通过读取本地的 nfo 文件中的字段信息，可以无需联网，实现查看或更新视频命名等操作<br/>\
         2，如果仅想查看和检查已刮削的视频信息和图片是否存在问题，可以：<br/>\
         -1）不勾选「本地已刮削成功的文件，重新整理分类」；<br/>\
@@ -70,9 +73,9 @@ def Init_Ui(self):
         6，如果想要重新下载图片等文件（需联网），可以：<br/>\
         -1）勾选「本地已刮削成功的文件，重新整理分类」；<br/>\
         -2）勾选「重新下载图片等文件」。<br/>\
-        软件将按照「设置」-「下载」中的设置项，进行下载、保留等操作。</p></body></html>''')
+        软件将按照「设置」-「下载」中的设置项，进行下载、保留等操作。</p></body></html>""")
     self.Ui.pushButton_tips_soft.setIcon(help_icon)
-    self.Ui.pushButton_tips_soft.setToolTip('''<html><head/><body><p><b>创建软链接：</b><br/>\
+    self.Ui.pushButton_tips_soft.setToolTip("""<html><head/><body><p><b>创建软链接：</b><br/>\
         1，软链接适合网盘用户。软链接类似快捷方式，是指向真实文件的一个符号链接。它体积小，支持跨盘指向，删除后不影响原文件（当原文件删除后，软链接会失效）。<br/>\
         <span style=" font-weight:700; color:red;">注意：\
         <br/>Windows版：软链接保存位置必须是本地磁盘（平台限制），真实文件则网盘或本地盘都可以。<br/>\
@@ -88,10 +91,11 @@ def Init_Ui(self):
         -1）使用 CloudDriver、Alist、RaiDrive 等第三方工具挂载网盘<br/>\
         -2）MDCx 设置待刮削目录为网盘视频目录，输出目录为本地磁盘文件夹<br/>\
         -3）设置中选择「创建软链接」，其他配置设置好后保存配置，点击开始刮削<br/>\
-        -4）Emby、Jellyfin 媒体库路径设置为本地刮削后保存的磁盘文件夹扫描即可</p></body></html>''')
+        -4）Emby、Jellyfin 媒体库路径设置为本地刮削后保存的磁盘文件夹扫描即可</p></body></html>""")
     self.Ui.pushButton_tips_hard.setIcon(help_icon)
     self.Ui.pushButton_tips_hard.setToolTip(
-        '''<html><head/><body><p><b>创建硬链接：</b><br/>1，硬链接适合 PT 用户。PT 用户视频文件一般存放在 NAS 中，为保证上传分享率，不能修改原文件信息。<br/>2，硬链接指向和原文件相同的硬盘索引，和原文件必须同盘。使用硬链接，可以在同盘单独存放刮削资料，不影响原文件信息。<br/>3，删除硬链接，原文件还在；删除原文件，硬链接还在。两个都删除，文件才会被删除。<br/><span style=" font-weight:700; color:#ff2600;">注意：Mac 平台仅支持本地磁盘创建硬链接（权限问题），非本地磁盘请选择创建软链接。Windows 平台没有这个问题。</span></p></body></html>''')
+        """<html><head/><body><p><b>创建硬链接：</b><br/>1，硬链接适合 PT 用户。PT 用户视频文件一般存放在 NAS 中，为保证上传分享率，不能修改原文件信息。<br/>2，硬链接指向和原文件相同的硬盘索引，和原文件必须同盘。使用硬链接，可以在同盘单独存放刮削资料，不影响原文件信息。<br/>3，删除硬链接，原文件还在；删除原文件，硬链接还在。两个都删除，文件才会被删除。<br/><span style=" font-weight:700; color:#ff2600;">注意：Mac 平台仅支持本地磁盘创建硬链接（权限问题），非本地磁盘请选择创建软链接。Windows 平台没有这个问题。</span></p></body></html>"""
+    )
     self.Ui.textBrowser_log_main_3.hide()  # 失败列表隐藏
     self.Ui.pushButton_scraper_failed_list.hide()
     self.Ui.pushButton_save_failed_list.hide()
@@ -227,15 +231,19 @@ def Init_Singal(self):
 
     def n(a): ...  # mousePressEvent 的返回值必须是 None, 用这个包装一下
 
-    self.Ui.label_download_actor_zip.mousePressEvent = lambda e: n(webbrowser.open(
-        'https://github.com/moyy996/AVDC/releases/tag/%E5%A4%B4%E5%83%8F%E5%8C%85-2'))
-    self.Ui.label_download_sub_zip.mousePressEvent = lambda e: n(webbrowser.open(
-        'https://www.dropbox.com/sh/vkbxawm6mwmwswr/AADqZiF8aUHmK6qIc7JSlURIa'))
-    self.Ui.label_download_mark_zip.mousePressEvent = lambda e: n(webbrowser.open(
-        'https://www.dropbox.com/sh/vkbxawm6mwmwswr/AADqZiF8aUHmK6qIc7JSlURIa'))
-    self.Ui.label_get_cookie_url.mousePressEvent = lambda e: n(webbrowser.open('https://tieba.baidu.com/p/5492736764'))
-    self.Ui.label_download_actor_db.mousePressEvent = lambda e: n(webbrowser.open(
-        'https://github.com/sqzw-x/mdcx/releases/tag/actor_info_database'))
+    self.Ui.label_download_actor_zip.mousePressEvent = lambda e: n(
+        webbrowser.open("https://github.com/moyy996/AVDC/releases/tag/%E5%A4%B4%E5%83%8F%E5%8C%85-2")
+    )
+    self.Ui.label_download_sub_zip.mousePressEvent = lambda e: n(
+        webbrowser.open("https://www.dropbox.com/sh/vkbxawm6mwmwswr/AADqZiF8aUHmK6qIc7JSlURIa")
+    )
+    self.Ui.label_download_mark_zip.mousePressEvent = lambda e: n(
+        webbrowser.open("https://www.dropbox.com/sh/vkbxawm6mwmwswr/AADqZiF8aUHmK6qIc7JSlURIa")
+    )
+    self.Ui.label_get_cookie_url.mousePressEvent = lambda e: n(webbrowser.open("https://tieba.baidu.com/p/5492736764"))
+    self.Ui.label_download_actor_db.mousePressEvent = lambda e: n(
+        webbrowser.open("https://github.com/sqzw-x/mdcx/releases/tag/actor_info_database")
+    )
     # endregion
 
     # region 控件更新
@@ -267,18 +275,17 @@ def Init_Singal(self):
     self.pushButton_move_mp4.connect(self.Ui.pushButton_move_mp4.setText)
     self.pushButton_find_missing_number.connect(self.Ui.pushButton_find_missing_number.setText)
     self.label_result.connect(self.Ui.label_result.setText)
-    self.label_show_version.connect(self.Ui.label_show_version.setText)
-    # endregion
+    self.label_show_version.connect(self.Ui.label_show_version.setText)  # endregion
 
 
 def Init_QSystemTrayIcon(self):
     self.tray_icon = QSystemTrayIcon(self)
     self.tray_icon.setIcon(QIcon(resources.icon_ico))
     self.tray_icon.activated.connect(self.tray_icon_click)
-    self.tray_icon.setToolTip(f'MDCx {self.localversion}（左键显示/隐藏 | 右键退出）')
-    show_action = QAction(u"显示", self)
-    hide_action = QAction(u"隐藏\tQ", self)
-    quit_action = QAction(u"退出 MDCx", self)
+    self.tray_icon.setToolTip(f"MDCx {self.localversion}（左键显示/隐藏 | 右键退出）")
+    show_action = QAction("显示", self)
+    hide_action = QAction("隐藏\tQ", self)
+    quit_action = QAction("退出 MDCx", self)
     show_action.triggered.connect(self.tray_icon_show)
     hide_action.triggered.connect(self.hide)
     quit_action.triggered.connect(self.ready_to_exit)
@@ -289,24 +296,27 @@ def Init_QSystemTrayIcon(self):
     tray_menu.addAction(quit_action)
     self.tray_icon.setContextMenu(tray_menu)
     self.tray_icon.show()
-    # self.tray_icon.showMessage(f"MDCx {self.localversion}", u'已启动！欢迎使用!', QIcon(self.icon_ico), 3000) # icon的值  0没有图标  1是提示  2是警告  3是错误
+    # self.tray_icon.showMessage(f"MDCx {self.localversion}", u'已启动！欢迎使用!', QIcon(self.icon_ico), 3000)
+    # icon的值  0没有图标  1是提示  2是警告  3是错误
 
 
 def init_QTreeWidget(self):
     # 初始化树状控件
     try:
-        self.set_label_file_path.emit('🎈 当前刮削路径: \n %s' % get_movie_path_setting()[0])  # 主界面右上角显示提示信息
+        self.set_label_file_path.emit(
+            "🎈 当前刮削路径: \n %s" % get_movie_path_setting()[0]
+        )  # 主界面右上角显示提示信息
     except:
         signal.show_traceback_log(traceback.format_exc())
-    signal.add_label_info('')
+    signal.add_label_info("")
     Flags.count_claw = 0  # 批量刮削次数
-    if self.Ui.pushButton_start_cap.text() != '开始':
+    if self.Ui.pushButton_start_cap.text() != "开始":
         Flags.count_claw = 1  # 批量刮削次数
     else:
-        self.label_result.emit(' 刮削中：0 成功：0 失败：0')
+        self.label_result.emit(" 刮削中：0 成功：0 失败：0")
     self.Ui.treeWidget_number.clear()
     self.item_succ = QTreeWidgetItem(self.Ui.treeWidget_number)
-    self.item_succ.setText(0, '成功')
+    self.item_succ.setText(0, "成功")
     self.item_fail = QTreeWidgetItem(self.Ui.treeWidget_number)
-    self.item_fail.setText(0, '失败')
+    self.item_fail.setText(0, "失败")
     self.Ui.treeWidget_number.expandAll()  # 展开主界面树状内容

@@ -7,6 +7,8 @@
 依赖:
     此模块不应依赖除 models.base.utils 外的任何项目代码
 """
+
+import threading
 import time
 
 from PyQt5.QtCore import QObject, pyqtSignal
@@ -36,24 +38,23 @@ class Signals(QObject):
     # endregion
     def __init__(self):
         super().__init__()
+        self.log_lock = threading.Lock()
         self.detail_log_list = []
         self.stop = False
 
     def add_log(self, *text):
         if self.stop:
-            raise '手动停止刮削'
+            raise "手动停止刮削"
         try:
-            self.detail_log_list.append(f" ⏰ {time.strftime('%H:%M:%S', time.localtime())} {' '.join(text)}")
+            with self.log_lock:
+                self.detail_log_list.append(f" ⏰ {time.strftime('%H:%M:%S', time.localtime())} {' '.join(text)}")
         except:
             pass
 
     def get_log(self):
-        text = ''
-        if self.detail_log_list:
-            a = len(self.detail_log_list)
-            text = '\n'.join(self.detail_log_list[:a])
-            for _ in range(a):
-                self.detail_log_list.pop(0)
+        with self.log_lock:
+            text = "\n".join(self.detail_log_list)
+            self.detail_log_list = []
         return text
 
     def show_traceback_log(self, text):
@@ -63,7 +64,7 @@ class Signals(QObject):
     def show_log_text(self, text):
         self.log_text.emit(text)
 
-    def show_scrape_info(self, before_info=''):
+    def show_scrape_info(self, before_info=""):
         self.scrape_info.emit(before_info)
 
     def show_net_info(self, text):
@@ -72,7 +73,7 @@ class Signals(QObject):
     def add_label_info(self, json_data):
         self.set_main_info.emit(json_data)
 
-    def show_list_name(self, filename, result, json_data, real_number=''):
+    def show_list_name(self, filename, result, json_data, real_number=""):
         self.exec_show_list_name.emit(filename, result, json_data, real_number)
 
 
